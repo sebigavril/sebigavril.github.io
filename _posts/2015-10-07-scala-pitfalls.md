@@ -1,20 +1,20 @@
 ---
 layout: post
 title: Scala pitfalls
-category: Coding
-tags: scala  
+category: coding
+tags: scala, pitfalls  
 year: 2015
 month: 10
 day: 7
 published: true
 summary: Bits of tricky Scala code  
-image: post-2.png
+image: 2015-10-07.png
 ---
 
 ### Intro
 
 
-I have gathered these code snippets while my team and I were learning Scala for a new project. The following examples are meant to illustrate some of Scala's oddities that you might encounter while programming.
+I have gathered these code snippets while my team and I were learning Scala for a new project. The following examples are meant to illustrate some of Scala's oddities that you might encounter while programming. The version of Scala used is 2.11.7. 
 
 ------
 
@@ -149,15 +149,16 @@ Result
 
     false
 
-Confused? Well, it turns out that Scala is happy enough to insert a `Unit`, if it thinks that's what you want. The thing is that `toSet` is a side effect free function that does not have any parameters, hence no parentheses. When you call `.toSet()` Scala thinks that you want to call the `apply` method on the newly created Set. But apply it with what? Well, with the `Unit` we just said that Scala is nice enough to insert for you. And of course, the Set does not contain and `Unit`, so it returns false. 
+Confused? Well, it turns out that Scala is happy enough to insert a `Unit`, if it thinks that's what you want. The thing is that `toSet` is a side effect free function that does not have any parameters, hence no parentheses. When you call `.toSet()` Scala thinks that you want to call the `apply` method on the newly created Set. But apply it with what? Well, with the `Unit` we just said that Scala is nice enough to insert for you. And of course, the Set does not contain an `Unit`, so it returns false. 
 {% endhide %}
 
 ------
 
 {% assign i=i | plus:1 %}   
 #### Snippet {{i}}
+Will this pass the compiler?
 {% highlight scala linenos %}
-List(1, 2, 3) contains "your mom"
+List(1, 2, 3) contains "the reader of this article"
 {% endhighlight %}
 
 {% hide <b>See answer</b> %}
@@ -171,6 +172,7 @@ Yeah, the language that is so "typesafe" will not throw a compiler error in this
 
 {% assign i=i | plus:1 %}   
 #### Snippet {{i}}
+Creating a string from a parallel collection... What would that string look like? 
 {% highlight scala linenos %}
 Set(1,2,3,4,5).par mkString(" ")
 {% endhighlight %}
@@ -187,6 +189,7 @@ One would expect the result to vary since we're using a parallel collection. Try
 
 {% assign i=i | plus:1 %}   
 #### Snippet {{i}}
+Doing pattern matching on generics...
 {% highlight scala linenos %}
 Seq("1", "2", "3") match {
   case _ : List[Int] => println("List of Ints")
@@ -207,6 +210,7 @@ You shouldn't match on generic types because of type erasure. If you do, Scala w
 
 {% assign i=i | plus:1 %}   
 #### Snippet {{i}}
+This is just an example of applying the same map operation in 2 ways. What will the output be?
 {% highlight scala linenos %}
 import scala.collection.BitSet
 
@@ -227,6 +231,7 @@ Result
 
 {% assign i=i | plus:1 %}   
 #### Snippet {{i}}
+What will get printed at line 6 and 7?
 {% highlight scala linenos %}
 class C
 
@@ -249,6 +254,7 @@ Line 3 is a sequence of definitions. So each variable on the line gets its own i
 
 {% assign i=i | plus:1 %}   
 #### Snippet {{i}}
+How about calling methods on uninitialized strings?
 {% highlight scala linenos %}
 val s1: String = s1
 val s2: String = s2 + s2
@@ -265,3 +271,12 @@ Result
 
 Obviously, `s1` is `null` and calling any method on a null object will throw a NPE. But the interesting thing is that `s2` is not `null`, but `nullnull` which gets treated as a string. 
 {% endhide %}
+
+------
+
+#### References
+
+* [https://github.com/scala/scala.github.com/blob/pitfalls/overviews/core/_posts/2014-04-08-language-pitfalls.md](https://github.com/scala/scala.github.com/blob/pitfalls/overviews/core/_posts/2014-04-08-language-pitfalls.md)
+* [http://scalapuzzlers.com](http://scalapuzzlers.com)
+* [https://www.youtube.com/watch?v=uiJycy6dFSQ](https://www.youtube.com/watch?v=uiJycy6dFSQ)
+* [http://beust.com/weblog/category/scala](http://beust.com/weblog/category/scala)
