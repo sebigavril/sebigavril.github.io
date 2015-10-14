@@ -2,7 +2,7 @@
 <html class="fuelux" lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{ page.title }}</title>
+    <title>Posts Tagged &ldquo;pitfalls&rdquo;</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -32,15 +32,77 @@
     <link rel="shortcut icon" href="/favicon.ico">    
   </head>
 <body data-spy="scroll" data-target=".subnav" data-offset="50">
-{% include navigation.html %}
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+	<div class="container">
+	  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	  </a>
+	  <a class="brand" href="http://sebigavril.github.io">Another developer blog</a>
+	  <div class="nav-collapse">
+		<ul class="nav">		  
+		  <li class="">
+			<a href="http://sebigavril.github.io"><i class="icon-home"></i> Home</a>
+		  </li>
+		  <li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-comment"></i> Social <b class="caret"></b></a>
+				<ul class="dropdown-menu">										
+					<li class=""><a href="http://www.twitter.com/sebigavril" rel="tooltip" title="Go to twitter.com/sebigavril" target="_blank">Twitter</a></li>
+					<li class=""><a href="http://github.com/sebigavril" rel="tooltip" title="Go to github.com/sebigavril" target="_blank">GitHub</a></li>
+					<li class=""><a href="https://ro.linkedin.com/in/sebastiangavril" rel="tooltip" title="Go to LinkedIn profile" target="_blank">LinkedIn</a></li>										
+				</ul>
+			 </li>
+		</ul>		
+	  </div>
+	</div>
+  </div>
+</div>
 
 <div class="container">	
 	<div class="marketing">
-		{{ content }}
+		<div class="container">
+	<div class="marketing">
+		<div class="content">	  
+			<div class="row">								
+			    <div class="span6 columns">
+					<h2>Posts Tagged &ldquo;pitfalls&rdquo;</h2>
+					<table class="table table-striped">
+					  <tbody>
+							
+						
+						
+						
+						
+						<tr>
+						  <td>
+							<h3><a href="/coding/2015/10/07/scala-pitfalls">Scala pitfalls</a></h3>
+							<p><strong>October  7, 2015</strong> . coding . <a href="http://sebigavril.github.io/coding/2015/10/07/scala-pitfalls#disqus_thread" data-disqus-identifier="/coding/2015/10/07/scala-pitfalls"></a>
+							<br/><small><i>Bits of tricky Scala code</i></small>
+							<br/><small><i class="icon-tags"></i>  <a href="/tags/scala," title="View posts tagged with &quot;scala,&quot;"><u>scala,</u></a>     <a href="/tags/pitfalls" title="View posts tagged with &quot;pitfalls&quot;"><u>pitfalls</u></a>    </small></p>
+						  </td>
+						</tr>
+						
+						
+									
+					  </tbody>
+					</table> 
+				</div>
+			</div>
+		</div>
+	</div>		
+</div>
 	</div>		 
 </div>   
 
-{% include footer.html %}
+<footer class="footer">
+  <div class="container">
+		<p class="pull-right">  |  <a href="#">Back to top</a>  |   </p>        
+		<p class="">Page last generated on October 14, 2015</p>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>	
+	  </div>
+</footer>
 
     <!-- Le javascript
     ================================================== -->
